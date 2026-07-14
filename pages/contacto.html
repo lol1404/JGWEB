@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacto — JGLab</title>
+<meta name="description" content="Contacta con JGLab. Respondo directamente. WhatsApp, email o formulario.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Overpass:wght@500;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-row">
+    <div class="logo"><a href="../index.html">JGWEB</a></div>
+    <button class="hamburger" id="hamburger" aria-label="Menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-menu" id="navMenu">
+      <a href="../index.html" class="nav-link">Inicio</a>
+      <a href="servicios.html" class="nav-link">Servicios</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+      <a href="contacto.html" class="nav-link nav-cta">Contacto</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero-inner">
+  <div class="wrap">
+    <span class="eyebrow hero-eyebrow">Hablemos</span>
+    <h1>Cuéntame sobre tu negocio</h1>
+    <p class="lead">Respondo directamente. Sin esperas, sin automatización. Solo tú y yo, ayudándote a crecer.</p>
+  </div>
+</header>
+
+<section class="section contact-full">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <div class="section-head reveal">
+          <h2>Formas de contacto</h2>
+          <p>Elige la que más te convenga:</p>
+        </div>
+        
+        <div class="contact-options reveal">
+          <div class="contact-option">
+            <div class="contact-icon">💬</div>
+            <h3>WhatsApp</h3>
+            <p>Respuesta rápida, directo al punto.</p>
+            <a href="https://wa.me/34601356179" target="_blank" rel="noopener" class="btn btn-primary">Escribir por WhatsApp</a>
+          </div>
+          
+          <div class="contact-option">
+            <div class="contact-icon">📧</div>
+            <h3>Email</h3>
+            <p>jmgb@jglab.es</p>
+            <a href="mailto:jmgb@jglab.es" class="btn btn-ghost">Enviar email</a>
+          </div>
+
+          <div class="contact-option">
+            <div class="contact-icon">📞</div>
+            <h3>Llamada</h3>
+            <p>+34 601 356 179</p>
+            <a href="tel:+34601356179" class="btn btn-ghost">Llamar</a>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <form class="form" id="contactForm" name="contact" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="bot-field" />
+          <h2>O rellena el formulario</h2>
+          
+          <div class="field">
+            <label for="name">Nombre</label>
+            <input type="text" id="name" name="name" required placeholder="Tu nombre">
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="tu@email.com">
+          </div>
+
+          <div class="field">
+            <label for="phone">Teléfono</label>
+            <input type="tel" id="phone" name="phone" placeholder="+34 6XX XXX XXX">
+          </div>
+
+          <div class="field">
+            <label for="business">¿Qué negocio es?</label>
+            <input type="text" id="business" name="business" placeholder="Ej: Peluquería, Notaría, Catering...">
+          </div>
+
+          <div class="field">
+            <label for="message">Cuéntame sobre tu negocio y qué necesitas</label>
+            <textarea id="message" name="message" required placeholder="Describe tu negocio, objetivos y lo que necesitas..."></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Enviar mensaje</button>
+          <div class="form-msg" id="formMsg"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section faq on-ink">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Dudas comunes</span>
+      <h2>Preguntas Frecuentes</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>¿Cuánto cuesta?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Desde 80€ al año el plan básico. Todos los planes incluyen dominio, SSL, y SEO básico. <a href="../index.html#planes" style="color: var(--pin);">Ver planes →</a></p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>¿Qué incluye cada plan?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p><strong>Básica:</strong> One Page, dominio, SSL, Google Maps. <strong>Online:</strong> Básica + 5 secciones, diseño personalizado, redes sociales. <strong>Profesional:</strong> Online + 10 secciones, blog, SEO avanzado, reservas. <strong>Tienda:</strong> Profesional + tienda online, carrito, pasarela de pago.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>¿Cuánto tiempo se tarda?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p><strong>Básica:</strong> 5-7 días. <strong>Online/Profesional:</strong> 10-14 días. <strong>Tienda:</strong> 14-21 días. En casos urgentes, consulta por entregas express.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>¿Hay que renovar anualmente?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Sí, el dominio y hosting se renuevan cada año. Es como una cuota de mantenimiento. Los precios son claros y sin sorpresas. Si quieres cancelar, puedes hacer con 30 días de aviso.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>¿Puedo pedir cambios después de publicar?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Claro. Todos los planes incluyen 2 horas mensuales de cambios gratis. Cambios adicionales se cobran por horas. Así mantienes tu web siempre actualizada.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>¿Qué pasa si cancelo?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Te doy todo el código fuente. Puedes llevarlo a otro proveedor sin problemas. La web es tuya. Pero te recomiendo que sigamos juntos, porque el soporte y actualizaciones valen la pena.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; width:100%; flex-wrap:wrap; gap:12px;">
+    <span>© <span id="year"></span> JGLab</span>
+    <span><a href="legal.html" style="color:inherit;">Términos y privacidad</a></span>
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+
+</body>
+</html>

@@ -1,5 +1,24 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// Hamburger menu toggle
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
+
+if(hamburger && navMenu){
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+  });
+  
+  // Cerrar menú al hacer click en un link
+  navMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+    });
+  });
+}
+
 // Typewriter effect for search bar
 const phrases = ['peluquería cerca de mí', 'notaría cerca de mí', 'catering para eventos'];
 const typedEl = document.getElementById('typed-text');
