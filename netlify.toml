@@ -1,0 +1,16 @@
+[build]
+  command = "echo 'Build complete'"
+  publish = "."
+
+[functions]
+  directory = "functions"
+
+[[redirects]]
+  from = "/success"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact-success"
+  to = "/index.html?success=true"
+  status = 200

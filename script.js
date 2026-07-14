@@ -45,9 +45,8 @@ const io = new IntersectionObserver((entries) => {
 }, { threshold: 0.15 });
 revealEls.forEach(el => io.observe(el));
 
-// Contact form (front-end only demo)
+// Contact form with Netlify
 document.getElementById('contactForm').addEventListener('submit', function(e){
-  e.preventDefault();
-  document.getElementById('formMsg').textContent = '¡Gracias! Te responderé lo antes posible.';
-  this.reset();
+  // No prevenir el envío - dejar que Netlify lo maneje
+  document.getElementById('formMsg').textContent = 'Enviando tu mensaje...';
 });
