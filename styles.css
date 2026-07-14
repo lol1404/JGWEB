@@ -205,6 +205,18 @@ h1,h2,h3{ font-family: var(--display); margin:0; letter-spacing:-0.01em; }
 .btn-ghost{ border-color: var(--ink-line); color:var(--paper); }
 .btn-ghost:hover{ background: var(--ink-soft); }
 
+/* Ghost buttons on light backgrounds */
+.contact-options .btn-ghost,
+.contact-grid .btn-ghost{
+  color:var(--ink);
+  border-color:var(--ink);
+}
+.contact-options .btn-ghost:hover,
+.contact-grid .btn-ghost:hover{
+  background: var(--ink);
+  color:var(--paper);
+}
+
 /* Signature: search-to-map mockup */
 .mock{
   background: var(--ink-soft);
