@@ -106,6 +106,16 @@ window.toggleFaq = function(el){
   }
 };
 
+// Auto-fill plan from URL parameter
+const planSelect = document.getElementById('plan');
+if(planSelect){
+  const params = new URLSearchParams(window.location.search);
+  const selectedPlan = params.get('plan');
+  if(selectedPlan){
+    planSelect.value = selectedPlan;
+  }
+}
+
 // Contact form with Netlify
 const contactForm = document.getElementById('contactForm');
 if(contactForm){
