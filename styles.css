@@ -549,7 +549,8 @@ footer{
   background:var(--paper-soft); border-radius:12px; padding:20px;
   text-align:center;
 }
-.contact-icon{ font-size:2rem; margin-bottom:12px; }
+.contact-icon{ font-size:2rem; margin-bottom:12px; display:flex; justify-content:center; align-items:center; min-height:64px; }
+.contact-icon img{ width:64px; height:auto; }
 .contact-option h3{ font-size:1.05rem; margin:0 0 8px; }
 .contact-option p{ margin:0 0 14px; color:var(--muted-on-paper); font-size:0.95rem; }
 
