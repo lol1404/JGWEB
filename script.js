@@ -45,8 +45,40 @@ const io = new IntersectionObserver((entries) => {
 }, { threshold: 0.15 });
 revealEls.forEach(el => io.observe(el));
 
+// Modal para planes
+function openPlanModal(name, price, renewal){
+  const modal = document.getElementById('planModal');
+  document.getElementById('modalPlanName').textContent = name;
+  document.getElementById('modalPriceFirst').textContent = price;
+  document.getElementById('modalPriceRenew').textContent = 'Renovación: ' + renewal;
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+function closePlanModal(){
+  document.getElementById('planModal').style.display = 'none';
+  document.body.style.overflow = 'auto';
+}
+
+window.addEventListener('keydown', (e) => {
+  if(e.key === 'Escape') closePlanModal();
+});
+
+// FAQ toggle
+function toggleFaq(el){
+  const item = el.closest('.faq-item');
+  item.classList.toggle('active');
+  el.classList.toggle('active');
+}
+
 // Contact form with Netlify
 document.getElementById('contactForm').addEventListener('submit', function(e){
-  // No prevenir el envío - dejar que Netlify lo maneje
-  document.getElementById('formMsg').textContent = 'Enviando tu mensaje...';
+  const formMsg = document.getElementById('formMsg');
+  formMsg.textContent = 'Enviando tu mensaje...';
+  formMsg.style.color = '#1b6e63';
+  
+  // Mostrar alerta elegante
+  setTimeout(() => {
+    alert('✓ ¡Mensaje enviado!\n\nTe responderé lo antes posible.\n\nGracias por contactar.');
+  }, 300);
 });

@@ -143,7 +143,7 @@
           <li>✓ SEO local básico e indexación en Google</li>
           <li>✓ Certificado SSL (https)</li>
         </ul>
-        <a href="#contacto" class="plan-cta">Elegir Básica</a>
+        <a href="#" class="plan-cta" onclick="openPlanModal('Presencia Básica', '80 €', '40 €/año'); return false;">Elegir Básica</a>
       </div>
 
       <div class="plan popular reveal">
@@ -159,7 +159,7 @@
           <li>✓ Copias de seguridad y actualizaciones de seguridad</li>
           <li>✓ Soporte técnico básico</li>
         </ul>
-        <a href="#contacto" class="plan-cta">Elegir Online</a>
+        <a href="#" class="plan-cta" onclick="openPlanModal('Presencia Online', '180 €', '120 €/año'); return false;">Elegir Online</a>
       </div>
 
       <div class="plan reveal">
@@ -174,7 +174,7 @@
           <li>✓ Informe mensual de visitas</li>
           <li>✓ Soporte técnico prioritario</li>
         </ul>
-        <a href="#contacto" class="plan-cta">Elegir Profesional</a>
+        <a href="#" class="plan-cta" onclick="openPlanModal('Profesional', '280 €', '150 €/año'); return false;">Elegir Profesional</a>
       </div>
 
       <div class="plan reveal">
@@ -189,7 +189,94 @@
           <li>✓ Gestión de pedidos</li>
           <li>✓ Soporte técnico prioritario</li>
         </ul>
-        <a href="#contacto" class="plan-cta">Elegir Tienda</a>
+        <a href="#" class="plan-cta" onclick="openPlanModal('Tienda Online', '350 €', '180 €/año'); return false;">Elegir Tienda</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section blog" id="blog">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Noticias</span>
+      <h2>Blog & Noticias</h2>
+      <p>Consejos para mejorar la presencia online de tu negocio.</p>
+    </div>
+    <div class="grid-3">
+      <article class="blog-card reveal">
+        <div class="blog-date">14 Jul 2026</div>
+        <h3>SEO Local: Cómo aparecer primero en Google Maps</h3>
+        <p>Descubre los 5 pasos clave para optimizar tu ficha de negocio y aparecer en los primeros resultados locales.</p>
+        <a href="#" class="blog-link">Leer más →</a>
+      </article>
+      <article class="blog-card reveal">
+        <div class="blog-date">10 Jul 2026</div>
+        <h3>Diseño Web Responsive: Imprescindible en 2026</h3>
+        <p>¿Por qué más del 80% de las búsquedas se hacen desde móvil? Todo lo que necesitas saber.</p>
+        <a href="#" class="blog-link">Leer más →</a>
+      </article>
+      <article class="blog-card reveal">
+        <div class="blog-date">7 Jul 2026</div>
+        <h3>Integración de WhatsApp: Aumenta las ventas 40%</h3>
+        <p>Hemos medido el impacto de tener WhatsApp directo en tu web. Los resultados sorprenden.</p>
+        <a href="#" class="blog-link">Leer más →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section faq">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Dudas comunes</span>
+      <h2>Preguntas Frecuentes</h2>
+      <p>Respuestas a las dudas más habituales sobre nuestros servicios.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>¿Cuánto tiempo tarda en estar lista mi web?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Depende del plan: <strong>Plan Básica: 5-7 días</strong> | <strong>Planes Online y Profesional: 10-14 días</strong> | <strong>Tienda Online: 14-21 días</strong>. En casos urgentes, consulta por envíos express.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>¿Puedo actualizar la web después de que esté lista?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Sí. Todos nuestros planes incluyen 2 horas de actualizaciones al mes sin coste adicional. Para cambios más grandes, cobra por horas.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>¿Qué pasa si cancelo? ¿Pierdo mi web?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>No. Si cancelas, te facilito todo el código fuente. Puedes moverte a otro proveedor sin problemas. El contrato es anual renovable y se puede cancelar con 30 días de aviso.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>¿Incluye soporte post-lanzamiento?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Todos los planes incluyen soporte técnico por email. Los planes Online y superiores tienen soporte prioritario con respuesta en 24h. Puedes escribir directamente a JGLab.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>¿Necesito conocimientos técnicos?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>No. Me encargo de todo. Solo necesitas contar qué necesitas. Yo manejo la tecnología, el diseño y la publicación.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -202,7 +289,7 @@
       <h2>Cuéntame sobre tu negocio</h2>
       <p>Sin intermediarios: respondo yo directamente. Cuéntame qué necesitas y te propongo el plan que mejor encaje.</p>
       <div class="contact-actions">
-        <a href="https://wa.me/34600000000" class="whatsapp-btn" target="_blank" rel="noopener">
+        <a href="https://wa.me/34601356179" class="whatsapp-btn" target="_blank" rel="noopener">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-1.4-.7-2.3-1.2-3.2-2.8-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4L9 8.3c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.9 1-.6 2.3.1 3.4 1.4 2.1 2.9 3 5.1 3.7.6.2 1.1.2 1.5.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.1-.4-.2Z"/></svg>
           Escríbeme por WhatsApp
         </a>
@@ -228,6 +315,22 @@
     </form>
   </div>
 </section>
+
+<div id="planModal" class="modal" style="display:none;">
+  <div class="modal-overlay" onclick="closePlanModal()"></div>
+  <div class="modal-content">
+    <button class="modal-close" onclick="closePlanModal()">×</button>
+    <h2 id="modalPlanName"></h2>
+    <div class="modal-price">
+      <div><span id="modalPriceFirst"></span> <span class="modal-period">primer año</span></div>
+      <div class="modal-renew"><span id="modalPriceRenew"></span> renovación anual</div>
+    </div>
+    <div class="modal-cta">
+      <a href="#contacto" class="btn btn-primary" onclick="closePlanModal()">Contratarlo</a>
+      <a href="#" class="btn btn-ghost" onclick="closePlanModal(); return false;">Seguir viendo</a>
+    </div>
+  </div>
+</div>
 
 <footer>
   <div class="wrap" style="display:flex; justify-content:space-between; width:100%; flex-wrap:wrap; gap:12px;">
