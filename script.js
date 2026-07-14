@@ -19,6 +19,81 @@ if(hamburger && navMenu){
   });
 }
 
+// Hero text rotation
+const heroText = document.getElementById('hero-text');
+if(heroText){
+  const phrases = [
+    'Una web |profesional| no es un lujo, es la nueva tarjeta de |presentación|.',
+    '|Clientes| investigan, comparan y eligen al que |aparece primero|.',
+    'No necesitas más suerte. Necesitas más |visibilidad|.',
+    'Si siempre haces lo |mismo|, obtendrás los |mismos| resultados.',
+    'El mejor momento para crear tu web fue hace años. El |segundo mejor| es hoy.'
+  ];
+  
+  // Parse phrase y separar palabras y resaltes
+  function parsePhrase(text){
+    const parts = [];
+    const regex = /\|([^|]+)\||([^|]+)/g;
+    let match;
+    while((match = regex.exec(text)) !== null){
+      if(match[1]){
+        parts.push({ text: match[1], highlighted: true });
+      } else {
+        parts.push({ text: match[2], highlighted: false });
+      }
+    }
+    return parts;
+  }
+  
+  let pIndex = 0, charCount = 0, deleting = false;
+
+  function typeHero(){
+    const parts = parsePhrase(phrases[pIndex]);
+    const fullText = parts.map(p => p.text).join('');
+    
+    if(!deleting){
+      charCount++;
+      if(charCount > fullText.length){
+        deleting = true;
+        setTimeout(typeHero, 2000);
+        return;
+      }
+    } else {
+      charCount--;
+      if(charCount <= 0){
+        charCount = 0;
+        deleting = false;
+        pIndex = (pIndex + 1) % phrases.length;
+      }
+    }
+    
+    // Construir HTML según charCount
+    let html = '';
+    let currentChar = 0;
+    
+    for(let part of parts){
+      if(currentChar >= charCount) break;
+      
+      const partLength = part.text.length;
+      const endChar = Math.min(currentChar + partLength, charCount);
+      const visibleLength = endChar - currentChar;
+      const visibleText = part.text.slice(0, visibleLength);
+      
+      if(part.highlighted){
+        html += '<span class="hero-highlight">' + visibleText + '</span>';
+      } else {
+        html += visibleText;
+      }
+      
+      currentChar = endChar;
+    }
+    
+    heroText.innerHTML = html;
+    setTimeout(typeHero, deleting ? 20 : 30);
+  }
+  typeHero();
+}
+
 // Typewriter effect for search bar
 const typedEl = document.getElementById('typed-text');
 if(typedEl){
