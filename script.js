@@ -195,13 +195,29 @@ if(planSelect){
 const contactForm = document.getElementById('contactForm');
 if(contactForm){
   contactForm.addEventListener('submit', function(e){
+    e.preventDefault();
     const formMsg = document.getElementById('formMsg');
     formMsg.textContent = 'Enviando tu mensaje...';
     formMsg.style.color = '#1b6e63';
-    
-    // Mostrar alerta elegante
-    setTimeout(() => {
-      alert('✓ ¡Mensaje enviado!\n\nTe responderé lo antes posible.\n\nGracias por contactar.');
-    }, 300);
+
+    const formData = new FormData(contactForm);
+    fetch(contactForm.action || window.location.pathname, {
+      method: 'POST',
+      headers: { 'Accept': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData)
+    })
+      .then(response => {
+        if(response.ok){
+          formMsg.textContent = '✓ Mensaje enviado correctamente. Te responderé lo antes posible.';
+          formMsg.style.color = '#1b6e63';
+          contactForm.reset();
+        } else {
+          throw new Error('Error al enviar');
+        }
+      })
+      .catch(() => {
+        formMsg.textContent = 'No se pudo enviar el formulario. Por favor, intenta de nuevo o escribe a jmgb2509@gmail.com.';
+        formMsg.style.color = '#ff4b3e';
+      });
   });
 }
