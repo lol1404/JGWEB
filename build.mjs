@@ -5,6 +5,7 @@ import { marked } from 'marked';
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 const output = path.join(root, 'dist');
+const siteOrigin = 'https://jgweb.es';
 const articlesDirectory = path.join(root, 'content', 'articles');
 const imagesDirectory = path.join(articlesDirectory, 'images');
 const template = await readFile(path.join(root, 'templates', 'blog.html'), 'utf8');
@@ -161,6 +162,8 @@ const listing = articles.map((article) => {
 await writeFile(path.join(output, 'pages', 'blog.html'), fillTemplate({
   BASE_PATH: '../',
   BLOG_PATH: 'pages/blog.html',
+  CANONICAL_URL: `${siteOrigin}/pages/blog.html`,
+  OG_TYPE: 'website',
   BLOG_CONTENT: listing,
   TITLE: 'Blog: Presencia Digital para Negocios',
   SUMMARY: 'Consejos prácticos, estrategias y casos de éxito sobre cómo hacer crecer tu negocio online.',
@@ -174,6 +177,8 @@ for (const article of articles) {
   const html = fillTemplate({
     BASE_PATH: '../../',
     BLOG_PATH: 'pages/blog.html',
+    CANONICAL_URL: `${siteOrigin}/pages/blog/${article.slug}.html`,
+    OG_TYPE: 'article',
     BLOG_CONTENT: '',
     TITLE: escapeHtml(article.title),
     SUMMARY: escapeHtml(article.summary),
@@ -185,3 +190,14 @@ for (const article of articles) {
   const articlePath = path.join(blogDirectory, `${article.slug}.html`);
   await writeFile(articlePath, html);
 }
+
+const sitemapPaths = [
+  '/',
+  '/pages/servicios.html',
+  '/pages/contacto.html',
+  '/pages/blog.html',
+  '/pages/legal.html',
+  ...articles.map((article) => `/pages/blog/${article.slug}.html`),
+];
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapPaths.map((route) => `  <url><loc>${siteOrigin}${route}</loc></url>`).join('\n')}\n</urlset>\n`;
+await writeFile(path.join(output, 'sitemap.xml'), sitemap);

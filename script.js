@@ -191,6 +191,14 @@ if(planSelect){
   }
 }
 
+document.querySelectorAll('.js-email').forEach(emailPlaceholder => {
+  const email = ['contacto', 'jgweb.es'].join('@');
+  const emailLink = document.createElement('a');
+  emailLink.href = `mailto:${email}`;
+  emailLink.textContent = email;
+  emailPlaceholder.replaceChildren(emailLink);
+});
+
 // Contact form with Netlify
 const contactForm = document.getElementById('contactForm');
 if(contactForm){
@@ -216,7 +224,7 @@ if(contactForm){
         }
       })
       .catch(() => {
-        formMsg.textContent = 'No se pudo enviar el formulario. Por favor, intenta de nuevo o escribe a jmgb2509@gmail.com.';
+        formMsg.textContent = 'No se pudo enviar el formulario. Por favor, intenta de nuevo o contacta por WhatsApp.';
         formMsg.style.color = '#ff4b3e';
       });
   });

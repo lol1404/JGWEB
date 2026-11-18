@@ -6,6 +6,12 @@
   directory = "functions"
 
 [[redirects]]
+  from = "https://jgweb.netlify.app/*"
+  to = "https://jgweb.es/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/success"
   to = "/index.html"
   status = 200
@@ -14,3 +20,11 @@
   from = "/contact-success"
   to = "/index.html?success=true"
   status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), geolocation=(), microphone=(), payment=(), usb=()"
