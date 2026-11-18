@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{PAGE_TITLE}}</title>
+<meta name="description" content="{{SUMMARY}}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Overpass:wght@500;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{BASE_PATH}}styles.css">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-row">
+    <div class="logo"><img width="64" src="{{BASE_PATH}}logo pngpng.png" alt="JGWEB"><a href="{{BASE_PATH}}index.html">JGWEB</a></div>
+    <button class="hamburger" id="hamburger" aria-label="Menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-menu" id="navMenu">
+      <a href="{{BASE_PATH}}index.html" class="nav-link">Inicio</a>
+      <a href="{{BASE_PATH}}pages/servicios.html" class="nav-link">Servicios</a>
+      <a href="{{BASE_PATH}}{{BLOG_PATH}}" class="nav-link">Blog</a>
+      <a href="{{BASE_PATH}}pages/contacto.html" class="nav-link nav-cta">Contacto</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero-inner">
+  <div class="wrap">
+    <span class="eyebrow hero-eyebrow">{{EYEBROW}}</span>
+    <h1>{{TITLE}}</h1>
+    <p class="lead">{{SUMMARY}}</p>
+    {{DATE}}
+  </div>
+</header>
+
+<section class="section blog-posts">
+  <div class="wrap">
+    {{BLOG_CONTENT}}
+    {{CONTENT}}
+  </div>
+</section>
+
+<section class="section contact-cta">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>¿Quieres aplicar estas estrategias a tu web?</h2>
+      <p>Te ayudamos a implementar todo. Sin complicaciones.</p>
+    </div>
+    <div style="text-align:center; margin-top:32px;">
+      <a href="{{BASE_PATH}}pages/contacto.html" class="btn btn-primary">Conversemos</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; width:100%; flex-wrap:wrap; gap:12px;">
+    <span>© <span id="year"></span> JGWEB</span>
+    <span><a href="{{BASE_PATH}}pages/legal.html" style="color:inherit;">Términos y privacidad</a></span>
+  </div>
+</footer>
+
+<script src="{{BASE_PATH}}script.js"></script>
+
+</body>
+</html>
