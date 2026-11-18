@@ -180,7 +180,7 @@ for (const article of articles) {
     DATE: `<div class="blog-date">${escapeHtml(article.displayDate)}</div>`,
     PAGE_TITLE: `${escapeHtml(article.title)} — JGWEB`,
     EYEBROW: 'Artículo',
-    CONTENT: `<article class="blog-post reveal"><div class="blog-content">${article.image ? `<figure class="blog-article-figure"><img src="../../images/blog/${escapeHtml(article.image)}" alt="${escapeHtml(article['image-alt'] || article.title)}" loading="lazy" decoding="async"></figure>` : ''}${marked.parse(article.content)}</div></article>`,
+    CONTENT: `<article class="blog-post"><div class="blog-content">${article.image ? `<figure class="blog-article-figure"><img src="../../images/blog/${escapeHtml(article.image)}" alt="${escapeHtml(article['image-alt'] || article.title)}" loading="lazy" decoding="async"></figure>` : ''}${marked.parse(article.content)}</div></article>`,
   });
   const articlePath = path.join(blogDirectory, `${article.slug}.html`);
   await writeFile(articlePath, html);
