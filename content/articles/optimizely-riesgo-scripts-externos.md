@@ -49,6 +49,6 @@ Si tienes una tienda online, pregunta quién recibe los avisos de seguridad de c
 
 El caso de Optimizely recuerda que la seguridad no depende únicamente de tener HTTPS o una contraseña robusta. También importa el código de terceros que se ejecuta en el navegador de cada visitante y el control que tenemos sobre él.
 
-En JGWEB tratamos el mantenimiento como parte de una presencia digital fiable, igual que el [diseño web adaptable a móviles](diseno-web-responsive.html), la [integración de WhatsApp](integracion-whatsapp.html) o el [SEO local para aparecer en Google Maps](seo-local-google-maps.html).
+En JGWEB tratamos el mantenimiento como parte de una presencia digital fiable, igual que el [diseño web adaptable a móviles](diseno-web-responsive), la [integración de WhatsApp](integracion-whatsapp) o el [SEO local para aparecer en Google Maps](seo-local-google-maps).
 
-**En resumen:** revisa qué herramientas externas utiliza tu web, elimina las que no necesites y pide que se compruebe su política CSP. Si tienes una web o tienda online y quieres revisar sus scripts y medidas de seguridad, [contacta con JGWEB](../../pages/contacto.html) para valorar una revisión.
+**En resumen:** revisa qué herramientas externas utiliza tu web, elimina las que no necesites y pide que se compruebe su política CSP. Si tienes una web o tienda online y quieres revisar sus scripts y medidas de seguridad, [contacta con JGWEB](../../pages/contacto) para valorar una revisión.

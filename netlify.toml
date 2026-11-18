@@ -6,8 +6,26 @@
   directory = "functions"
 
 [[redirects]]
+  from = "https://jgweb.es/*"
+  to = "https://www.jgweb.es/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "https://jgweb.netlify.app/*"
-  to = "https://jgweb.es/:splat"
+  to = "https://www.jgweb.es/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/pages/*.html"
+  to = "/pages/:splat"
   status = 301
   force = true
 

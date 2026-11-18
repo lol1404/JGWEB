@@ -46,6 +46,6 @@ La recomendación de actualizar también ha sido recogida por [Reuters](https://
 
 Una web no termina cuando se publica. Las dependencias, el servidor, los certificados y las herramientas que utiliza necesitan revisiones periódicas. Mantener actualizado el software reduce riesgos y ayuda a evitar que un componente antiguo se convierta en el punto débil de todo el servicio.
 
-En JGWEB hablamos también de otros aspectos de una presencia digital cuidada, como el [diseño web responsive](diseno-web-responsive.html) y el [SEO local para aparecer en Google Maps](seo-local-google-maps.html). Son áreas distintas, pero forman parte de la misma idea: una web profesional debe funcionar bien, ser fácil de encontrar y mantenerse correctamente.
+En JGWEB hablamos también de otros aspectos de una presencia digital cuidada, como el [diseño web responsive](diseno-web-responsive) y el [SEO local para aparecer en Google Maps](seo-local-google-maps). Son áreas distintas, pero forman parte de la misma idea: una web profesional debe funcionar bien, ser fácil de encontrar y mantenerse correctamente.
 
 **En resumen:** si gestionas aplicaciones Java u OpenJDK, revisa hoy mismo las versiones instaladas, consulta las actualizaciones de tu proveedor y prioriza los servicios accesibles desde Internet. No esperes a que una incidencia te obligue a hacerlo.

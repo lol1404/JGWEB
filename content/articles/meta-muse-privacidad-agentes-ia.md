@@ -44,10 +44,10 @@ Los agentes empiezan a actuar como intermediarios entre consumidores y comercios
 
 Una tienda debería mantener las mismas protecciones tanto si compra una persona como si interviene un agente: validar precios y disponibilidad en el servidor, confirmar el importe antes del pago y registrar las operaciones. Reservas, devoluciones y cambios de dirección necesitan controles claros. No conviene dar a una automatización permisos ilimitados sobre el panel de administración.
 
-Este enfoque complementa otras medidas de seguridad web. En JGWEB ya hemos explicado los riesgos de los [scripts externos integrados en una página](optimizely-riesgo-scripts-externos.html) y la importancia de mantener actualizado el [servidor web Apache](apache-http2-cve-2026-119618.html).
+Este enfoque complementa otras medidas de seguridad web. En JGWEB ya hemos explicado los riesgos de los [scripts externos integrados en una página](optimizely-riesgo-scripts-externos) y la importancia de mantener actualizado el [servidor web Apache](apache-http2-cve-2026-119618).
 
 ## La IA útil necesita límites claros
 
 Los agentes pueden ahorrar tiempo en tareas repetitivas, pero no deberían recibir acceso ilimitado por comodidad. El caso de Muse no prueba que todos sus usuarios hayan sufrido una filtración; sí muestra por qué hay que verificar permisos, supervisar acciones y distinguir entre una respuesta generada y una operación que afecta a una persona real.
 
-Si tu empresa quiere incorporar IA a su web, tienda online o atención al cliente, o necesita revisar qué datos y permisos manejan sus herramientas, [contacta con JGWEB](../../pages/contacto.html) para estudiar una integración con controles adecuados.
+Si tu empresa quiere incorporar IA a su web, tienda online o atención al cliente, o necesita revisar qué datos y permisos manejan sus herramientas, [contacta con JGWEB](../../pages/contacto) para estudiar una integración con controles adecuados.
