@@ -41,6 +41,8 @@ Pega este texto en el editor y sustituye los ejemplos por los datos y el conteni
 title: Cómo preparar tu negocio para la temporada
 date: 2026-11-18
 summary: Ideas prácticas para preparar tu negocio y atraer más clientes.
+image: escaparate.jpg
+image-alt: Escaparate de una tienda local decorado para la temporada.
 ---
 
 ### Empieza con una idea
@@ -58,7 +60,19 @@ Explica tus consejos con palabras claras y párrafos cortos.
 
 Conserva las tres líneas `---`: una antes de los datos y otra después. Esas líneas separan la información del artículo de su texto.
 
-## 5. Escribe y da formato al texto
+Las líneas `image` y `image-alt` son opcionales. Si no vas a poner imagen, bórralas. Si sí vas a ponerla, sube primero el archivo a `content/articles/images` siguiendo los pasos del apartado siguiente y escribe su nombre exacto en `image`. La misma imagen aparecerá en la tarjeta del listado y al principio del artículo. En `image-alt`, describe brevemente lo que se ve para que la imagen también sea comprensible con lectores de pantalla.
+
+## 5. Añade una imagen (opcional)
+
+1. En GitHub, abre `content/articles/images`.
+2. Pulsa **Add file** y después **Upload files**.
+3. Selecciona la imagen de tu ordenador y confirma los cambios para subirla.
+4. En los datos del artículo, escribe el nombre exacto del archivo en `image`. Por ejemplo, si subiste `escaparate.jpg`, escribe `image: escaparate.jpg`.
+5. Escribe una descripción corta de la imagen en `image-alt`.
+
+Se admiten imágenes JPG, JPEG, PNG, WebP, GIF y AVIF. Para que el nombre sea válido, usa minúsculas, números y guiones; por ejemplo, `escaparate-de-temporada.jpg`. No uses espacios, tildes ni `ñ`. Puedes reutilizar una imagen en más de un artículo.
+
+## 6. Escribe y da formato al texto
 
 Debajo de la segunda línea `---`, escribe el artículo. Puedes usar estos formatos:
 
@@ -71,7 +85,7 @@ Debajo de la segunda línea `---`, escribe el artículo. Puedes usar estos forma
 
 No escribas el título principal otra vez en el cuerpo: la web ya lo muestra al principio del artículo.
 
-## 6. Revisa antes de guardar
+## 7. Revisa antes de guardar
 
 Comprueba que:
 
@@ -79,8 +93,9 @@ Comprueba que:
 - El título, la fecha y el resumen están escritos entre las dos líneas `---`.
 - La fecha sigue el formato `AAAA-MM-DD`, con mes y día de dos cifras.
 - El resumen es breve y el texto está debajo de la segunda línea `---`.
+- Si añadiste `image`, el archivo ya está en `content/articles/images`, el nombre coincide exactamente y también rellenaste `image-alt`.
 
-## 7. Guarda y publica
+## 8. Guarda y publica
 
 1. Pulsa **Commit changes...** para guardar el archivo en GitHub.
 2. Escribe un mensaje sencillo, por ejemplo: `Añadir artículo sobre escaparates`.

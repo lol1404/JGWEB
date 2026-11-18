@@ -1,4 +1,4 @@
-import { cp, mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
+import { access, cp, mkdir, readFile, readdir, rm, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { marked } from 'marked';
@@ -6,7 +6,9 @@ import { marked } from 'marked';
 const root = path.dirname(fileURLToPath(import.meta.url));
 const output = path.join(root, 'dist');
 const articlesDirectory = path.join(root, 'content', 'articles');
+const imagesDirectory = path.join(articlesDirectory, 'images');
 const template = await readFile(path.join(root, 'templates', 'blog.html'), 'utf8');
+const imageFilenamePattern = /^[a-z0-9]+(?:-[a-z0-9]+)*\.(?:avif|gif|jpe?g|png|webp)$/;
 const excludedPaths = new Set([
   '.git',
   '.netlify',
@@ -40,15 +42,15 @@ function fillTemplate(values) {
   });
 }
 
-function parseArticle(source, filename) {
-  const match = source.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/);
+async function parseArticle(source, filename) {
+  const match = source.replace(/^\uFEFF/, '').match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/);
   if (!match) {
     throw new Error(`${filename}: añade los metadatos entre delimitadores ---.`);
   }
 
   const metadata = {};
   for (const line of match[1].split(/\r?\n/)) {
-    const field = line.match(/^([a-z]+):\s*(.*?)\s*$/);
+    const field = line.match(/^([a-z][a-z-]*):\s*(.*?)\s*$/);
     if (!field) {
       throw new Error(`${filename}: metadato no válido: "${line}".`);
     }
@@ -59,6 +61,15 @@ function parseArticle(source, filename) {
     if (!metadata[field]) {
       throw new Error(`${filename}: falta el metadato obligatorio "${field}".`);
     }
+  }
+
+  if (metadata.image && !imageFilenamePattern.test(metadata.image)) {
+    throw new Error(
+      `${filename}: la imagen debe ser un archivo JPG, PNG, WebP, GIF o AVIF con nombre en minúsculas y guiones, dentro de content/articles/images.`,
+    );
+  }
+  if (!metadata.image && metadata['image-alt']) {
+    throw new Error(`${filename}: añade "image" para poder usar "image-alt".`);
   }
 
   const parsedDate = Date.parse(`${metadata.date}T00:00:00Z`);
@@ -73,7 +84,7 @@ function parseArticle(source, filename) {
     throw new Error(`${filename}: usa un nombre de archivo tipo mi-articulo.md.`);
   }
 
-  return {
+  const article = {
     ...metadata,
     slug,
     content: match[2].trim(),
@@ -83,6 +94,23 @@ function parseArticle(source, filename) {
       timeZone: 'UTC',
     }).format(new Date(`${metadata.date}T00:00:00Z`)),
   };
+
+  if (article.image) {
+    const imagePath = path.join(imagesDirectory, article.image);
+    try {
+      await access(imagePath);
+      if (!(await stat(imagePath)).isFile()) {
+        throw new Error('no es un archivo');
+      }
+    } catch (error) {
+      throw new Error(
+        `${filename}: no se encuentra la imagen "content/articles/images/${article.image}".`,
+        { cause: error },
+      );
+    }
+  }
+
+  return article;
 }
 
 const files = (await readdir(articlesDirectory))
@@ -109,14 +137,26 @@ for (const entry of await readdir(root)) {
 
 const blogDirectory = path.join(output, 'pages', 'blog');
 await mkdir(blogDirectory, { recursive: true });
+const outputImagesDirectory = path.join(output, 'images', 'blog');
+await mkdir(outputImagesDirectory, { recursive: true });
+for (const filename of await readdir(imagesDirectory)) {
+  if (!imageFilenamePattern.test(filename)) continue;
+  await cp(path.join(imagesDirectory, filename), path.join(outputImagesDirectory, filename));
+}
 
-const listing = articles.map((article) => `
+const listing = articles.map((article) => {
+  const image = article.image
+    ? `<img class="blog-card-image" src="../images/blog/${escapeHtml(article.image)}" alt="${escapeHtml(article['image-alt'] || article.title)}" loading="lazy" decoding="async">`
+    : '';
+  return `
       <article class="blog-card reveal">
+        ${image}
         <div class="blog-date">${escapeHtml(article.displayDate)}</div>
         <h3>${escapeHtml(article.title)}</h3>
         <p>${escapeHtml(article.summary)}</p>
         <a class="blog-link" href="blog/${escapeHtml(article.slug)}.html">Leer artículo →</a>
-      </article>`).join('\n');
+      </article>`;
+}).join('\n');
 
 await writeFile(path.join(output, 'pages', 'blog.html'), fillTemplate({
   BASE_PATH: '../',
@@ -140,7 +180,7 @@ for (const article of articles) {
     DATE: `<div class="blog-date">${escapeHtml(article.displayDate)}</div>`,
     PAGE_TITLE: `${escapeHtml(article.title)} — JGWEB`,
     EYEBROW: 'Artículo',
-    CONTENT: `<article class="blog-post reveal"><div class="blog-content">${marked.parse(article.content)}</div></article>`,
+    CONTENT: `<article class="blog-post reveal"><div class="blog-content">${article.image ? `<figure class="blog-article-figure"><img src="../../images/blog/${escapeHtml(article.image)}" alt="${escapeHtml(article['image-alt'] || article.title)}" loading="lazy" decoding="async"></figure>` : ''}${marked.parse(article.content)}</div></article>`,
   });
   const articlePath = path.join(blogDirectory, `${article.slug}.html`);
   await writeFile(articlePath, html);
