@@ -14,7 +14,7 @@ PHP ha publicado actualizaciones que corrigen 18 vulnerabilidades, siete clasifi
 
 El 19 de noviembre, el equipo de PHP publicó versiones de mantenimiento y seguridad para sus ramas actuales: PHP 8.5.13, 8.4.28, 8.3.37 y 8.2.36. Ese mismo día también llegó PHP 8.6.0, que incorpora las correcciones en su nueva rama. Las versiones y fechas aparecen en el [archivo oficial de noticias de PHP](https://www.php.net/archive/2026.php) y en el [registro oficial de cambios de PHP 8](https://www.php.net/ChangeLog-8.php).
 
-NHS England contabiliza siete vulnerabilidades críticas, cuatro altas y seis moderadas, además de un fallo en una biblioteca incluida. Aikido y BleepingComputer hablan de 18 CVE: el aviso británico separa ese componente empaquetado de las 17 vulnerabilidades clasificadas por gravedad.
+[NHS England](https://digital.nhs.uk/cyber-alerts/2026/cc-4900) contabiliza siete vulnerabilidades críticas, cuatro altas y seis moderadas, además de un fallo en una biblioteca incluida. [BleepingComputer](https://www.bleepingcomputer.com/news/security/php-security-updates-fix-18-flaws-including-critical-rce-bugs/) y [Aikido](https://www.aikido.dev/blog) hablan de 18 CVE: el aviso británico separa ese componente empaquetado de las 17 vulnerabilidades clasificadas por gravedad.
 
 Los fallos afectan al motor de PHP, PHP-FPM, CGI, las sesiones, SOAP, Phar y el tratamiento de direcciones web.
 
@@ -24,7 +24,7 @@ Uno de los problemas que más atención ha recibido es **CVE-2026-129289**, una 
 
 El fallo permite un ataque de *request smuggling*: una petición HTTP deja datos sin leer y, si el servidor reutiliza la conexión con PHP-FPM, esos datos pueden interpretarse como una segunda petición interna. En determinadas condiciones, el atacante podría ejecutar código PHP.
 
-Hay una precisión importante: **no todas las instalaciones de NGINX o Apache están expuestas**. Según NHS England y BleepingComputer, el escenario requiere reutilización de conexiones FastCGI entre el servidor web y PHP-FPM. No es la configuración predeterminada habitual: por ejemplo, puede activarse con fastcgi_keep_conn on en NGINX o enablereuse=on en Apache mod_proxy_fcgi.
+Hay una precisión importante: **no todas las instalaciones de NGINX o Apache están expuestas**. Según [NHS England](https://digital.nhs.uk/cyber-alerts/2026/cc-4900) y [BleepingComputer](https://www.bleepingcomputer.com/news/security/php-security-updates-fix-18-flaws-including-critical-rce-bugs/), el escenario requiere reutilización de conexiones FastCGI entre el servidor web y PHP-FPM. No es la configuración predeterminada habitual: por ejemplo, puede activarse con fastcgi_keep_conn on en NGINX o enablereuse=on en Apache mod_proxy_fcgi.
 
 También se han corregido fallos de uso después de liberar memoria: errores que hacen que el programa vuelva a utilizar datos que ya no debería considerar válidos. Algunos pueden provocar caídas o ejecución remota de código. El changelog detalla CVE-2026-129474, CVE-2026-129496 y CVE-2026-126714.
 
@@ -42,7 +42,7 @@ Estas son las versiones corregidas publicadas el 19 de noviembre:
 
 Si utilizas una versión anterior, consulta si el proveedor ha incorporado los parches. Algunas distribuciones mantienen paquetes propios y pueden aplicar correcciones sin cambiar el número visible.
 
-El aviso de NHS England indica que ya existen varias pruebas de concepto públicas, es decir, demostraciones técnicas que muestran cómo reproducir algunos de los fallos. La organización considera realista que se produzcan intentos de explotación. Esto no demuestra que tu web haya sido atacada, pero sí hace recomendable no aplazar la actualización.
+El aviso de NHS England y el análisis de [The Register](https://www.theregister.com/patches/2026/11/18/another-critical-php-security-release-has-dropped/5310911) indican que hay pruebas de concepto públicas para algunos de estos problemas, es decir, demostraciones técnicas que muestran cómo reproducirlos. La organización considera realista que se produzcan intentos de explotación. Esto no demuestra que tu web haya sido atacada, pero sí hace recomendable no aplazar la actualización.
 
 ## Qué hacer si tienes una web o tienda online
 
