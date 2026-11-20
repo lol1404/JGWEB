@@ -14,7 +14,7 @@ PHP ha publicado actualizaciones que corrigen 18 vulnerabilidades, siete clasifi
 
 El 19 de noviembre, el equipo de PHP publicó versiones de mantenimiento y seguridad para sus ramas actuales: PHP 8.5.13, 8.4.28, 8.3.37 y 8.2.36. Ese mismo día también llegó PHP 8.6.0, que incorpora las correcciones en su nueva rama. Las versiones y fechas aparecen en el [archivo oficial de noticias de PHP](https://www.php.net/archive/2026.php) y en el [registro oficial de cambios de PHP 8](https://www.php.net/ChangeLog-8.php).
 
-[NHS England](https://digital.nhs.uk/cyber-alerts/2026/cc-4900) contabiliza siete vulnerabilidades críticas, cuatro altas y seis moderadas, además de un fallo en una biblioteca incluida. [BleepingComputer](https://www.bleepingcomputer.com/news/security/php-security-updates-fix-18-flaws-including-critical-rce-bugs/) y [Aikido](https://www.aikido.dev/blog) hablan de 18 CVE: el aviso británico separa ese componente empaquetado de las 17 vulnerabilidades clasificadas por gravedad.
+[NHS England](https://digital.nhs.uk/cyber-alerts/2026/cc-4900) contabiliza siete vulnerabilidades críticas, cuatro altas y seis moderadas, además de un fallo en una biblioteca incluida. [BleepingComputer](https://www.bleepingcomputer.com/news/security/php-security-updates-fix-18-flaws-including-critical-rce-bugs/) habla de 18 vulnerabilidades: el aviso británico separa ese componente empaquetado de las 17 vulnerabilidades clasificadas por gravedad.
 
 Los fallos afectan al motor de PHP, PHP-FPM, CGI, las sesiones, SOAP, Phar y el tratamiento de direcciones web.
 
